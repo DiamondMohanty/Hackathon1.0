@@ -1,0 +1,36 @@
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">XCOM Access Manager</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li><a href="#">My Access</a></li>
+      <li><a href="#">Completed Request</a></li>
+      <li><a href="#">Pending Approvals</a></li>
+    </ul>
+    <form class="navbar-form navbar-left">
+      <div class="form-group">
+        <input 
+          type="text" 
+          class="form-control" 
+          placeholder="System Name / System #"
+          [(ngModel)]="searchFieldText"
+          (ngModelChange)="searchFieldTextDidChange(searchFieldText)"
+          name="searchFieldText"
+        >
+        
+        <div class="search-result">
+          <table class="table table-striped search-result-table">
+            <tr *ngFor="let result of searchResultList">
+              <td>
+                <a routerLink="/raiserequest/{{result}}">{{result}}</a>
+              </td>
+            </tr>
+            
+          </table>
+        </div>
+      </div>
+      
+    </form>
+  </div>
+</nav>

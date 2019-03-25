@@ -1,0 +1,17 @@
+.form-control {
+    width: 75%;
+}
+
+.navbar-form {
+    width: 50%;
+}
+
+.form-group {
+    width: 75%; 
+}
+
+.search-result {
+    position: absolute;
+    z-index: 1000;
+    
+}

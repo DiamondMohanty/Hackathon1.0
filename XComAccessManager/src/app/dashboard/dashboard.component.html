@@ -1,0 +1,25 @@
+<div class="container">
+    <div class="panel panel-default" *ngFor="let accessModel of availableAccess">
+        <div class="panel-heading">
+            <h3 class="panel-title">{{accessModel.accessName}}</h3>
+        </div>
+        <div class="panel-body">
+            <div class="access-desc pull-left">
+                    {{accessModel.accessDesc}}
+            </div>
+            <div class="pull-right">
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Action <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">Revoke</a></li>
+                            <li><a href="#">Update</a></li>
+                        </ul>
+                    </div>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+        
+    </div>
+</div>
