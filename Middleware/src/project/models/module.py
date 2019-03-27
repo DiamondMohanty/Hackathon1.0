@@ -11,6 +11,6 @@ class Module:
             'path': self.path,
             'location': self.location,
             'moduleName': self.moduleName,
-            'self.description': self.description,
+            'description': self.description,
             'registered': self.registered
         }
