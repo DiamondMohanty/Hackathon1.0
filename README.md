@@ -1,7 +1,13 @@
 # Hackathon1.0
 Repository For Hackathon
 
+
+
 #API INFO
+
+***** BASE URL ******
+
+https://ELEMONEATERS.pythonanywhere.com
 
 ***** USER LOGIN *****
 
