@@ -1,0 +1,7 @@
+.button-bottom-left {
+    position: fixed;
+    right: 10px;
+    bottom: 10px;
+    background-color: rgb(87, 108, 153);
+    color: white;
+}

@@ -1,0 +1,23 @@
+
+<div class="container">
+    <div class="info">
+      <h1>ITP</h1>
+      <span>Induction and Knowledge Transfer Portal</span>
+    </div>
+  </div>
+  <div class="form">
+    <div class="thumbnail"><img src="https://img.icons8.com/color/100/000000/knowledge-sharing.png"></div>
+    <form class="register-form">
+      <input type="text" placeholder="userid" [(ngModel)]="username" name="username"/>
+      <input type="password" placeholder="password" [(ngModel)]="password" name="password" />
+      <input type="text" placeholder="email address"/>
+      <button>create</button>
+      <p class="message">Already registered? <a href="#">Sign In</a></p>
+    </form>
+    <form class="login-form">
+      <input type="text" placeholder="username"/>
+      <input type="password" placeholder="password"/>
+      <button (click)="performLogin()">login</button>
+    </form>
+  </div>
+  

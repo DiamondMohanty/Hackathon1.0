@@ -1,0 +1,53 @@
+<header class="header header-6">
+    <div class="branding">
+        <a routerLink="" class="nav-link">
+            <clr-icon shape="plugin" class="is-inverse"></clr-icon>
+            <span class="title">ITP</span>
+        </a>
+    </div>
+</header>
+<div class="main-container">
+    <div class="content-container">
+        <div class="content-area">
+            
+            <h1>Manage Plugins</h1>
+            
+            <div class="alert alert-danger" *ngIf="errorVisible">
+                <div class="alert-items">
+                    <div class="alert-item static">
+                        <div class="alert-icon-wrapper">
+                            <clr-icon class="alert-icon" shape="exclamation-circle"></clr-icon>
+                        </div>
+                        <span class="alert-text">
+                            {{ errorMessage }}
+                        </span>
+                    </div>
+                </div>
+                <button type="button" class="close" aria-label="Close" (click)="closeError()">
+                    <clr-icon aria-hidden="true" shape="close"></clr-icon>
+                </button>
+            </div>
+            
+            <div class="row">
+                <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12" *ngFor="let module of installedModules$">
+                    <div class="card">
+                        <div class="card-header">
+                            {{ module.moduleName }}
+                        </div>
+                        <div class="card-block">                   
+                            {{ module.description }} 
+                        </div>
+                        <div class="card-footer">
+                                <button class="btn btn-success" (click)="enableModule(module)" *ngIf="module.registered == false">Enable</button>
+                                <button class="btn btn-danger" (click)="enableModule(module)" *ngIf="module.registered">Disable</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            
+        </div>
+    </div>
+
+</div> 
+
