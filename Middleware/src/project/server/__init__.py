@@ -34,7 +34,7 @@ def create_app():
     app = Flask(__name__)
     # set config
     app_settings = os.getenv(
-        'APP_SETTINGS', 'project.server.config.DevelopmentConfig')
+        'APP_SETTINGS', 'project.server.config.ProductionConfig')
     app.config.from_object(app_settings)
 
 

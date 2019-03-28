@@ -24,9 +24,9 @@ def perform_login():
     a_validator = RequestValidator(in_data, ['user_id', 'user_password'])
     if a_validator.has_valid_keys():
         a_user = User(in_data['user_id'], in_data['user_password'])
-        user_id = a_user.is_valid_using_cred()
-        if user_id is not None:
-            a_response.data = [{'user_id': user_id}]
+        valid_user = a_user.is_valid_using_cred()
+        if valid_user is not None:
+            a_response.data = valid_user.__repr__()
         else:
             a_response.error = 'Invalid Login'
     else:

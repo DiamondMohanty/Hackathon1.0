@@ -43,9 +43,9 @@ class ProductionConfig(BaseConfig):
     SECRET_KEY = '14qn8s0plxg)k!!f!b=p%rc9t2xca^(5mu+aaly86blqa2rfkr'
     DEBUG = False
     SQLALCHEMY_DATABASE_URI = 'mysql+mysqlconnector://{username}:{password}@{hostname}/{databasename}'.format(
-        username="Devmob",
-        password="Lotus@2018",
-        hostname="Devmob.mysql.pythonanywhere-services.com",
-        databasename="Devmob$OishiiDev",
+        username="ELEMONEATERS",
+        password="Lotus@2019",
+        hostname="ELEMONEATERS.mysql.pythonanywhere-services.com",
+        databasename="ELEMONEATERS$Orion",
     )
     DEBUG_TB_ENABLED = False

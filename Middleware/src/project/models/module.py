@@ -1,6 +1,7 @@
 class Module:
     registered = False
-    def __init__(self, path, location, moduleName, description):
+    def __init__(self, id, path, location, moduleName, description):
+        self.id = id
         self.path = path
         self.location = location
         self.moduleName = moduleName
@@ -8,6 +9,7 @@ class Module:
 
     def __repr__(self):
         return {
+            'moduleId': self.id,
             'path': self.path,
             'location': self.location,
             'moduleName': self.moduleName,
