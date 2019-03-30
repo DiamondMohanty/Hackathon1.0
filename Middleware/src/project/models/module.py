@@ -1,11 +1,12 @@
 class Module:
     registered = False
-    def __init__(self, id, path, location, moduleName, description):
+    def __init__(self, id, path, location, moduleName, description, modulePrettyName):
         self.id = id
         self.path = path
         self.location = location
         self.moduleName = moduleName
         self.description = description
+        self.modulePrettyName = modulePrettyName
 
     def __repr__(self):
         return {
@@ -14,5 +15,6 @@ class Module:
             'location': self.location,
             'moduleName': self.moduleName,
             'description': self.description,
-            'registered': self.registered
+            'registered': self.registered,
+            'modulePrettyName': self.modulePrettyName
         }

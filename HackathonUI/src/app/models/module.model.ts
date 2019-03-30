@@ -6,4 +6,5 @@ export interface ModuleData {
     rootComponent?: string;
     description: string;
     registered?: boolean;
+    modulePrettyName: string;
 }

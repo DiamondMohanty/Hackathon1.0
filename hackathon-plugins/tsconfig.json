@@ -5,6 +5,7 @@
     "outDir": "./dist/out-tsc",
     "sourceMap": true,
     "declaration": false,
+    "module": "es2015",
     "moduleResolution": "node",
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
@@ -13,24 +14,15 @@
       "node_modules/@types"
     ],
     "lib": [
-      "es2017",
+      "es2018",
       "dom"
     ],
     "paths": {
-      "modulea": [
-        "dist/modulea"
-      ],
-      "moduleb": [
-        "dist/moduleb"
-      ],
-      "modulec": [
-        "dist/modulec"
-      ],
-      "moduled": [
-        "dist/moduled"
-      ],
       "dnda": [
         "dist/dnda"
+      ],
+      "dnda/*": [
+        "dist/dnda/*"
       ]
     }
   }

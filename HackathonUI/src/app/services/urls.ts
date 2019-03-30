@@ -4,8 +4,8 @@ import { Injectable } from "@angular/core";
     providedIn: 'root'
 })
 export class UrlService {
-    //baseUrl = 'http://localhost:5000/api/1.0/';
-    baseUrl = 'https://ELEMONEATERS.pythonanywhere.com/api/1.0/';
+    baseUrl = 'http://localhost:5000/api/1.0/';
+    //baseUrl = 'https://ELEMONEATERS.pythonanywhere.com/api/1.0/';
     
     all_modules(): string {
         return this.baseUrl + 'modules/all';

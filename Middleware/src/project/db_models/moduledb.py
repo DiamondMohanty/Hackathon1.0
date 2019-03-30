@@ -13,13 +13,14 @@ class ModuleDBModel(db.Model):
     location = db.Column(db.String(255), nullable=False)
     moduleName = db.Column(db.String(255), nullable=False)
     description = db.Column(db.String(255), nullable=False)
+    modulePrettyName = db.Column(db.String(255), nullable=False)
 
     @staticmethod
     def get_module_by_id(id):
         from project.models.module import Module
         fetched_module = ModuleDBModel.query.filter(ModuleDBModel.module_id==id).first()
-        return Module(id=fetched_module.module_id, path=fetched_module .path, location=fetched_module .location, moduleName=fetched_module .moduleName,
-                          description=fetched_module.description)
+        return Module(id=fetched_module.module_id, path=fetched_module.path, location=fetched_module.location, moduleName=fetched_module.moduleName,
+                          description=fetched_module.description, modulePrettyName=fetched_module.modulePrettyName)
 
 @module_blueprint.route('/api/1.0/modules/registered', methods=['POST'])
 def fetch_all_modules():
@@ -56,7 +57,7 @@ def get_all_modules():
     fetched_modules = ModuleDBModel.query.all()
     all_modules = []
     for module in fetched_modules:
-        a_module = Module(id=module.module_id,path=module.path, location= module.location, moduleName = module.moduleName, description = module.description)
+        a_module = Module(id=module.module_id,path=module.path, location= module.location, moduleName = module.moduleName, description = module.description, modulePrettyName=module.modulePrettyName)
         all_modules.append(a_module.__repr__())
 
     a_response.data = all_modules
@@ -81,7 +82,7 @@ def get_modules_for_manage():
 
     for module in fetched_modules:
         a_module = Module(id=module.module_id,path=module.path, location=module.location, moduleName=module.moduleName,
-                          description=module.description)
+                          description=module.description, modulePrettyName=module.modulePrettyName)
         all_modules.append(a_module)
 
     if a_validator.has_valid_keys():
