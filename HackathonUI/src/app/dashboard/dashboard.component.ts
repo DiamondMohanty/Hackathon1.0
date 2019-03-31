@@ -33,13 +33,12 @@ export class DashboardComponent implements OnInit {
       
       this.currentUser = this.session.getSessionUser();
 
-      if (user == undefined) {
+      if (this.currentUser == undefined) {
         this.router.navigateByUrl('');
       }
 
-      this.currentUser = user;
       
-      this.moduleService.loadModulesForUser(user).subscribe(res =>
+      this.moduleService.loadModulesForUser(this.currentUser).subscribe(res =>
         {            
             let allModules = res
             this.installedModules$ = allModules;
