@@ -1,7 +1,6 @@
-import { Route } from '@angular/router';
-import { Component } from '@angular/core';
-import { Observable } from 'rxjs';
-import { RouterService } from './services/router.service';
+import { Component, OnInit } from '@angular/core';
+import { User } from './models/user.model';
+import { Session } from './services/session.service';
 
 declare var SystemJS: any;
 
@@ -10,11 +9,19 @@ declare var SystemJS: any;
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   
-
-  title = 'app';
-  constructor() {
+  currentUser: User;
+  constructor(private session: Session) {
     
   }
+
+  ngOnInit() {
+    this.currentUser = this.session.getSessionUser();
+  }
+
+  expireSession() {
+    this.session.expire();
+  }
+
 }

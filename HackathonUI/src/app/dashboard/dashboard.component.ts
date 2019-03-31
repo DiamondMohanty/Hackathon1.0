@@ -31,7 +31,7 @@ export class DashboardComponent implements OnInit {
 
   ngOnInit() {
       
-      let user = this.session.getSessionUser();
+      this.currentUser = this.session.getSessionUser();
 
       if (user == undefined) {
         this.router.navigateByUrl('');

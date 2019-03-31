@@ -6,13 +6,23 @@ import { User } from "../models/user.model";
 export class Session {
 
     loggedInUser: User;
+    
 
     setSession(user: User) {
+        
         this.loggedInUser = user;
+        
+        sessionStorage.setItem('user', JSON.stringify(this.loggedInUser));
     }
+    
 
     getSessionUser(): User {
-        return this.loggedInUser
+        return <User>JSON.parse(sessionStorage.getItem('user'));
+    }
+
+    expire() {
+        this.loggedInUser = null;
+        sessionStorage.removeItem('user');
     }
 
 }

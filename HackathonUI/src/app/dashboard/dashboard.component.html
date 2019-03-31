@@ -40,7 +40,7 @@
         </div>
     </div>
 
-    <button class="button-bottom-left btn" (click)="showAllPlugins()">
+    <button class="button-bottom-left btn" (click)="showAllPlugins()" *ngIf="currentUser.userRole == 'ADMIN'">
         Manage Plugins
         <clr-icon shape="plugin" class="is-inverse"></clr-icon>
     </button>

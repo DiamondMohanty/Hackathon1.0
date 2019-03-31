@@ -32,15 +32,13 @@ export class ManagePluginsComponent implements OnInit {
 
   ngOnInit() {
 
-    let user = this.session.getSessionUser();
+    this.currentUser = this.session.getSessionUser();
 
-      if (user == undefined) {
+      if (this.currentUser == undefined) {
         this.router.navigateByUrl('');
       }
-
-      this.currentUser = user;
       
-      this.moduleService.loadModulesForManage(user).subscribe(res => this.installedModules$ = res);
+      this.moduleService.loadModulesForManage(this.currentUser).subscribe(res => this.installedModules$ = res);
 
   }
 

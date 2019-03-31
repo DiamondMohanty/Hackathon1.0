@@ -1,0 +1,27 @@
+.user-profile {
+    display: flex;
+    align-items: center;
+    position: absolute;
+    right: 0;
+}
+
+.user-profile button {
+    background-color: transparent;
+    border: none;
+    color: white;
+}
+
+.dropdown-menu {
+    padding:10px 70px;
+    text-align: center;
+    margin-top: 10px;
+}
+
+.dropdown {
+    width: 100%;
+}
+
+.dropdown-menu li a {
+    color: black;
+    text-decoration: none;
+}
