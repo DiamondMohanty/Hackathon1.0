@@ -15,8 +15,8 @@ export class LoginService {
 
         let headers = { headers: new HttpHeaders({'Content-Type': 'application/json'})};
         let user_info = {
-            'user_id': 1,
-            'user_password': 'password'
+            'user_id': username,
+            'user_password': password
         };
 
         console.log(user_info);
