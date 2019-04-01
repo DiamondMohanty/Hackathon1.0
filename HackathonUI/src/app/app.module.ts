@@ -15,6 +15,7 @@ import { JitCompilerFactory } from '@angular/platform-browser-dynamic';
 import { HttpClientModule } from '@angular/common/http';
 import { LoginComponent } from './login/login.component';
 import { ManagePluginsComponent } from './manage-plugins/manage-plugins.component';
+import { NavigationComponent } from './navigation/navigation.component';
 
 export function createCompiler(compilerFactory: CompilerFactory) {
   return compilerFactory.createCompiler();
@@ -25,7 +26,8 @@ export function createCompiler(compilerFactory: CompilerFactory) {
     AppComponent,
     DashboardComponent,
     LoginComponent,
-    ManagePluginsComponent
+    ManagePluginsComponent,
+    NavigationComponent
   ],
   imports: [
     BrowserModule,

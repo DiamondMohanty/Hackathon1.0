@@ -11,7 +11,7 @@ declare var SystemJS: any;
 })
 export class AppComponent implements OnInit {
   
-  currentUser: User;
+  currentUser: User = null;
   constructor(private session: Session) {
     
   }
@@ -20,8 +20,6 @@ export class AppComponent implements OnInit {
     this.currentUser = this.session.getSessionUser();
   }
 
-  expireSession() {
-    this.session.expire();
-  }
+  
 
 }
