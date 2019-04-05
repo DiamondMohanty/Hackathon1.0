@@ -11,11 +11,13 @@ import { ClarityModule } from '@clr/angular';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { JitCompilerFactory } from '@angular/platform-browser-dynamic';
+import { TagInputModule } from 'ngx-chips';
 
 import { HttpClientModule } from '@angular/common/http';
 import { LoginComponent } from './login/login.component';
 import { ManagePluginsComponent } from './manage-plugins/manage-plugins.component';
 import { NavigationComponent } from './navigation/navigation.component';
+import { UploadKTComponent } from './upload-kt/upload-kt.component';
 
 export function createCompiler(compilerFactory: CompilerFactory) {
   return compilerFactory.createCompiler();
@@ -27,7 +29,8 @@ export function createCompiler(compilerFactory: CompilerFactory) {
     DashboardComponent,
     LoginComponent,
     ManagePluginsComponent,
-    NavigationComponent
+    NavigationComponent,
+    UploadKTComponent
   ],
   imports: [
     BrowserModule,
@@ -35,6 +38,7 @@ export function createCompiler(compilerFactory: CompilerFactory) {
     ClarityModule,
     HttpClientModule,
     FormsModule,
+    TagInputModule,
     RouterModule.forRoot([
       {
         path: '', redirectTo: 'login', pathMatch: 'full',
@@ -49,11 +53,10 @@ export function createCompiler(compilerFactory: CompilerFactory) {
       {
         path: 'pluginmanager', component: ManagePluginsComponent
       },
-      // Disabled because Compiler is not passed through correctly so PortalModule is not created successfull.
-      // {
-      //   path: 'portal', loadChildren: './portal/portal.module#PortalModule'
-      // }
-    ], {useHash: true}),
+      {
+        path: 'uploadKT', component: UploadKTComponent
+      }
+    ]),
     HttpModule
   ],
   providers: [RouterService, ModuleService,

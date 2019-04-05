@@ -1,0 +1,53 @@
+<div class="container">
+  <h1 class="text-center">{{currentStep()}}</h1>
+  
+  <div id="upload-form" *ngIf="step=='upload'">
+      
+    <div class="row">
+      <div class="hr-middle">
+        <form>
+          <p>
+            <label class="fileContainer">
+                <input type="file" (change)="upload($event.target.files)"/>
+                {{fileUploadText}}
+            </label>
+          </p>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <div id="review-form" *ngIf="step=='review'">
+    <h1 class="text-center">Review Upload</h1>
+    <div *ngFor="let section of uploadDocument.sections">
+      <h1 class="text-center">{{section.heading}}</h1>
+      <p *ngFor="let content of section.contents">
+        {{content}}
+      </p>
+    </div>
+    <p>
+      <button class="btn" (click)="back()">Back</button>
+      <button class="btn" (click)="proceed()">Next</button>
+    </p>
+    
+  </div>
+
+  <div id="publish-form" *ngIf="step=='publish'">
+    <h1 class="text-center">Publish Upload</h1>
+    <div class="col-md-5 col-lg-5 col-sm-12 col-xs-12">
+      The following section will be published
+      <ul class="list list-unstyled">
+        <li *ngFor="let title of sections">{{title}}</li>
+      </ul>
+    </div>
+    <div class="col-md-5 col-lg-5 col-sm-12 col-xs-12">
+      What does this document describes about ?
+      <input type="textfield" class="form-control" placeholder="Provide some key words" />
+    </div>
+    <p>
+      <button class="btn" (click)="back()">Back</button>
+      <button class="btn" (click)="publish()">Publish</button>
+    </p>
+  </div>
+
+</div>

@@ -9,6 +9,7 @@ import { Observable } from 'rxjs/Observable';
 import { Session } from '../services/session.service';
 import { User } from '../models/user.model';
 import { Router, Route } from '@angular/router';
+import { Knowledge } from '../models/knowledge.model';
 
 @Component({
   templateUrl: './dashboard.component.html',
@@ -20,6 +21,9 @@ export class DashboardComponent implements OnInit {
   errorVisible = false;
   existingRoutes$: Observable<Route[]>;
   currentUser: User;
+
+  knowledgeModules: Knowledge[] = [];
+
   constructor(
     private routerService: RouterService, 
     private moduleService: ModuleService,
@@ -47,6 +51,20 @@ export class DashboardComponent implements OnInit {
                     this.registerRoute(x);
             })
         });
+
+      // Replace with service call
+
+      let uploadKnowledgeModule: Knowledge = {
+        id: 0,
+        title: "Upload KT Document",
+        description: "Upload documents here to make it available to all team members",
+        views: null,
+        url: "uploadKT",
+        author: 'System'
+      }
+
+      this.knowledgeModules.push(uploadKnowledgeModule);
+
   }
 
 
