@@ -24,7 +24,7 @@ class DevelopmentConfig(BaseConfig):
     WTF_CSRF_ENABLED = False
     SQLALCHEMY_DATABASE_URI = 'mysql://root:rabindra_bls@localhost/Orion'
     DEBUG_TB_ENABLED = True
-
+    UPLOAD_DIR = "/Users/diamondmohanty/Desktop/uploads"
 
 
 class TestingConfig(BaseConfig):
