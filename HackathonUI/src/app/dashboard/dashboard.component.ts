@@ -56,7 +56,7 @@ export class DashboardComponent implements OnInit {
 
       let uploadKnowledgeModule: Knowledge = {
         id: 0,
-        title: "Upload KT Document",
+        title: "Upload KT Documents",
         description: "Upload documents here to make it available to all team members",
         views: null,
         url: "uploadKT",
@@ -64,6 +64,15 @@ export class DashboardComponent implements OnInit {
       }
 
       this.knowledgeModules.push(uploadKnowledgeModule);
+      let viewKnowledgeModule: Knowledge = {
+        id: 0,
+        title: "View KT Documents",
+        description: "View KT Documents relevant to you",
+        views: null,
+        url: "viewKT",
+        author: 'System'
+      }
+      this.knowledgeModules.push(viewKnowledgeModule);
 
   }
 

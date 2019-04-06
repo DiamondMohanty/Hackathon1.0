@@ -72,3 +72,50 @@ input[type="text"], textarea {
 .float-right{
     float: right;
 }
+
+.btn-success{
+    cursor: pointer;
+    display: inline-block;
+    -webkit-appearance: none!important;
+    border-radius: .125rem;
+    border: 1px solid;
+    min-width: 1.25rem;
+    max-width: 15rem;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    text-align: center;
+    text-transform: uppercase;
+    vertical-align: middle;
+    line-height: 1.5rem;
+    letter-spacing: .12em;
+    font-size: .5rem;
+    font-weight: 500;
+    height: 1.5rem;
+    padding: 0 .5rem;
+    border-color: #0077b7;
+    background-color: transparent;
+    color: #007cbb;
+    bottom: 20px;
+    color: white;
+    background-color: green;
+    position: fixed;
+    left: 50%;
+
+}
+
+.assessment-container {
+    width: 60%;
+    margin: 50px auto;
+    border: 2px solid black;
+    padding: 20px;
+
+}
+
+.text-search {
+    width: 100%;
+}
+
+.card-margin{
+    margin: 5px;
+}

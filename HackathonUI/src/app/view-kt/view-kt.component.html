@@ -1,0 +1,88 @@
+<div class="container">
+  <div *ngIf="step=='viewList'">
+    <p></p>
+    <div class="row">
+      <div class="col-md-11">
+        <input type="text" class="text-search" placeholder="Ask a question" [(ngModel)]="searchQuery">
+      </div>
+      <div class="col-md-1">
+        <button class="btn-small" type="submit" (click)="search()">Search</button>
+      </div>
+    </div>
+    <div class="clearfix"></div>
+  </div>
+  <div id="upload-form" *ngIf="step=='viewList'">
+    <div class="row">
+      <div class="card col-md-6 " *ngFor="let list of viewList">
+        <div class="card-header">
+          {{ list.title }}
+        </div>
+        <div class="card-block">
+          {{ list.description }}
+        </div>
+        <div class="card-footer">
+          <button class="btn" (click)="viewDetails(list.id)">view</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="review-form" *ngIf="step=='viewDetails'">
+    <div class="row">
+      <div class="col-md-12" *ngIf="docView=='docDetails'">
+        <div>
+          <h1 class="text-center">{{saveDocument.sectionData[currentPage].sectionTitle}}</h1>
+          <p>
+            {{saveDocument.sectionData[currentPage].sectionContents}}
+          </p>
+        </div>
+        <p>
+          <button class="btn" (click)="back()">Back</button>
+          <span class="float-right">
+            <span *ngFor="let content of saveDocument.sectionData; let i = index" [attr.data-index]="i">
+              <button *ngIf="content.sectionTitle !==''" class="btn" (click)="switchToPage(i)">{{(i+1)+ " "}}</button>
+            </span>
+
+          </span>
+        </p>
+      </div>
+      <div class="col-md-12" *ngIf="docView=='assessment'">
+        <div class="assessment-container">
+          <h6>Question {{currentQuestion + 1}}</h6>
+          <div>
+            <p>{{saveDocument.sectionData[currentPage].questions[currentQuestion].text}}</p>
+            <p> </p>
+            <ul>
+              <li><input type="radio" name="'opt'"
+                  [value]="saveDocument.sectionData[currentPage].questions[currentQuestion].opt1"
+                  [(ngModel)]="saveDocument.sectionData[currentPage].questions[currentQuestion].opt">{{saveDocument.sectionData[currentPage].questions[currentQuestion].opt1}}
+              </li>
+              <li><input type="radio" name="'opt'"
+                  [value]="saveDocument.sectionData[currentPage].questions[currentQuestion].opt2"
+                  [(ngModel)]="saveDocument.sectionData[currentPage].questions[currentQuestion].opt">{{saveDocument.sectionData[currentPage].questions[currentQuestion].opt2}}
+              </li>
+              <li><input type="radio" name="'opt'"
+                  [value]="saveDocument.sectionData[currentPage].questions[currentQuestion].opt3"
+                  [(ngModel)]="saveDocument.sectionData[currentPage].questions[currentQuestion].opt">{{saveDocument.sectionData[currentPage].questions[currentQuestion].opt3}}
+              </li>
+              <li><input type="radio" name="'opt'"
+                  [value]="saveDocument.sectionData[currentPage].questions[currentQuestion].opt4"
+                  [(ngModel)]="saveDocument.sectionData[currentPage].questions[currentQuestion].opt">{{saveDocument.sectionData[currentPage].questions[currentQuestion].opt4}}
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div style="width: 60%; margin: 0 auto">
+          <span *ngFor="let question of saveDocument.sectionData[currentPage].questions; let i = index"
+            [attr.data-index]="i">
+            <button class="btn-small" (click)="switchToQuestions(i)">{{(i+1)+ " "}}</button>
+          </span>
+        </div>
+      </div>
+      <p>
+        <button class="btn-success" *ngIf="docView=='docDetails'" (click)="takeQuiz()">Take Quiz</button>
+      </p>
+      <p>
+        <button class="btn-success" *ngIf="docView=='assessment'" (click)="goBack()">Go Back</button>
+      </p>
+
+    </div>
