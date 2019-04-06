@@ -18,6 +18,7 @@ import { LoginComponent } from './login/login.component';
 import { ManagePluginsComponent } from './manage-plugins/manage-plugins.component';
 import { NavigationComponent } from './navigation/navigation.component';
 import { UploadKTComponent } from './upload-kt/upload-kt.component';
+import { ViewKTComponent } from './view-kt/view-kt.component';
 
 export function createCompiler(compilerFactory: CompilerFactory) {
   return compilerFactory.createCompiler();
@@ -30,7 +31,8 @@ export function createCompiler(compilerFactory: CompilerFactory) {
     LoginComponent,
     ManagePluginsComponent,
     NavigationComponent,
-    UploadKTComponent
+    UploadKTComponent,
+    ViewKTComponent
   ],
   imports: [
     BrowserModule,
@@ -55,6 +57,9 @@ export function createCompiler(compilerFactory: CompilerFactory) {
       },
       {
         path: 'uploadKT', component: UploadKTComponent
+      },
+      {
+        path: 'viewKT', component: ViewKTComponent
       }
     ]),
     HttpModule

@@ -1,48 +1,95 @@
 <div class="container">
   <h1 class="text-center">{{currentStep()}}</h1>
-  
+
   <div id="upload-form" *ngIf="step=='upload'">
-      
+
     <div class="row">
       <div class="hr-middle">
         <form>
           <p>
             <label class="fileContainer">
-                <input type="file" (change)="upload($event.target.files)"/>
-                {{fileUploadText}}
+              <input type="file" (change)="upload($event.target.files)" />
+              {{fileUploadText}}
             </label>
           </p>
         </form>
       </div>
     </div>
   </div>
-
   <div id="review-form" *ngIf="step=='review'">
     <h1 class="text-center">Review Upload</h1>
-    <div *ngFor="let section of uploadDocument.sections">
-      <h1 class="text-center">{{section.heading}}</h1>
-      <p *ngFor="let content of section.contents">
-        {{content}}
-      </p>
-    </div>
-    <p>
-      <button class="btn" (click)="back()">Back</button>
-      <button class="btn" (click)="proceed()">Next</button>
-    </p>
-    
-  </div>
+    <div class="row">
+      <div class="col-md-7">
+        <div>
+          <h1 class="text-center">{{uploadDocument.sections[currentPage].heading}}</h1>
+          <p>
+            {{uploadDocument.sections[currentPage].contents}}
+          </p>
+        </div>
+        <p>
+          <span class="float-right">
+            <span *ngFor="let content of uploadDocument.sections; let i = index" [attr.data-index]="i">
+              <button *ngIf="content.heading!==''" class="btn" (click)="switchToPage(i)">{{(i+1)+ " "}}</button>
+            </span>
+          </span>
+        </p>
+        <p>
+          <button class="btn" (click)="back()">Back</button>
+          <button class="btn" (click)="proceed()">Next</button>
+        </p>
+      </div>
+      <div class="col-md-5">
+        <h2 class="text-center">Questionnaires</h2>
+        <div>
+          <h6>Question {{currentQuestion + 1}}</h6>
+          <p><textarea name="text" [(ngModel)]="saveDocument.sectionData[currentPage].questions[currentQuestion].text"
+              rows="3" placeholder="Ask a question"></textarea>
+            <ul>
+              <li><input type="text" name="opt1"
+                  [(ngModel)]="saveDocument.sectionData[currentPage].questions[currentQuestion].opt1"
+                  placeholder="Option 1"></li>
+              <li><input type="text" name="opt2"
+                  [(ngModel)]="saveDocument.sectionData[currentPage].questions[currentQuestion].opt2"
+                  placeholder="Option 2"></li>
+              <li><input type="text" name="opt3"
+                  [(ngModel)]="saveDocument.sectionData[currentPage].questions[currentQuestion].opt3"
+                  placeholder="Option 3"></li>
+              <li><input type="text" name="opt4"
+                  [(ngModel)]="saveDocument.sectionData[currentPage].questions[currentQuestion].opt4"
+                  placeholder="Option 4"></li>
+              <li style="background-color: rgb(212, 253, 212)"><input type="text" name="ans"
+                  [(ngModel)]="saveDocument.sectionData[currentPage].questions[currentQuestion].ans"
+                  placeholder="Answer"></li>
+            </ul>
+            <p>
+              <span *ngFor="let question of saveDocument.sectionData[currentPage].questions; let i = index"
+                [attr.data-index]="i">
+                <button class="btn-small" (click)="switchToQuestions(i)">{{(i+1)+ " "}}</button>
+              </span>
+              <button class="btn-small float-right" (click)="addQuestion()">Add</button>
+            </p>
 
+        </div>
+      </div>
+
+    </div>
+  </div>
   <div id="publish-form" *ngIf="step=='publish'">
     <h1 class="text-center">Publish Upload</h1>
     <div class="col-md-5 col-lg-5 col-sm-12 col-xs-12">
-      The following section will be published
+      <h3>The following section will be published</h3>
+      <p> </p>
       <ul class="list list-unstyled">
         <li *ngFor="let title of sections">{{title}}</li>
       </ul>
+
     </div>
     <div class="col-md-5 col-lg-5 col-sm-12 col-xs-12">
-      What does this document describes about ?
-      <input type="textfield" class="form-control" placeholder="Provide some key words" />
+      <h3>Please provide document details:</h3>
+      <p><input type="text" name="documentTitle" [(ngModel)]="saveDocument.documentTitle" placeholder="Document Title">
+      </p>
+      <p><input type="text" name="documentDescription" [(ngModel)]="saveDocument.documentDescription"
+          placeholder="Document Description"></p>
     </div>
     <p>
       <button class="btn" (click)="back()">Back</button>
