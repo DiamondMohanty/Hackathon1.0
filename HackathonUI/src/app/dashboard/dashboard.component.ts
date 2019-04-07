@@ -67,7 +67,7 @@ export class DashboardComponent implements OnInit {
       let viewKnowledgeModule: Knowledge = {
         id: 0,
         title: "View KT Documents",
-        description: "View KT Documents relevant to you",
+        description: "View KT Documents relevant to you. Go through the materials and acquire knowlegde in the go.",
         views: null,
         url: "viewKT",
         author: 'System'
